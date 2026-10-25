@@ -1,0 +1,11 @@
+[["Bad1", "purchase-points", "setup"], ["Bad2", "purchase-points", "setup"]]
+[[["red"],["blue"]]]
+{
+  "bank": [],
+  "visibles": [{"pebbles": ["red","red","red","red","red"], "face?": false}],
+  "cards": [],
+  "players": [
+    {"wallet": ["red","red","red","red","red"], "score": 0},
+    {"wallet": ["red","red","red","red","red"], "score": 0}
+  ]
+}

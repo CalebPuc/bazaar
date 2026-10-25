@@ -1,0 +1,11 @@
+[["Zelda", "purchase-points"], ["Alice", "purchase-points"]]
+[[["red"],["blue"]]]
+{
+  "bank": [],
+  "visibles": [{"pebbles": ["red","red","red","red","red"], "face?": false}],
+  "cards": [],
+  "players": [
+    {"wallet": [], "score": 5},
+    {"wallet": [], "score": 5}
+  ]
+}
