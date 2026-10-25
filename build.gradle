@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+def fatJar(String jarName, String mainClass) {
+    return tasks.create(jarName, Jar) {
+        archiveFileName = "${jarName}.jar"
+        manifest {
+            attributes 'Main-Class': mainClass
+        }
+        from sourceSets.main.output
+        from {
+            configurations.runtimeClasspath.collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
+        }
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+}
+
+fatJar('xeq', 'xeq.XEq')
+fatJar('xturn', 'xturn.XTurn')
+fatJar('xstrategy', 'xstrategy.XStrategy')
+fatJar('xrules', 'xrules.XRules')
+fatJar('xgames', 'xgames.XGames')
